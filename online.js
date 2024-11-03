@@ -23,6 +23,10 @@ MongoClient.connect(mongoURL)
 
 app.get(`/${apiToken}/data`, async (req, res) => {
     try {
+        if (Object.keys(req.query).length === 0) {
+            return res.send("Namaste");
+        }
+        
         let query = {};
         let limit = 0;
         let skip = 0;
